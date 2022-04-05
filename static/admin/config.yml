@@ -1,0 +1,31 @@
+# https://www.netlifycms.org/docs/add-to-your-site/
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to master)
+  squash_merges: true # beta feature
+
+ # when using the default proxy server port
+ # Run npx netlify-cms-proxy-server from the root dir of the repo
+local_backend: true
+
+# 编辑工作流程
+publish_mode: editorial_workflow
+
+
+# 全局静态文件上传目录
+media_folder: "static/img/uploads" # Media files will be stored in the repo under images/uploads
+public_folder: "/img/uploads" # The src attribute for uploaded media will begin with /images/uploads
+
+media_folder_relative: true
+
+
+collections:
+  - name: "post" # Used in routes, e.g., /admin/collections/blog
+    label: "Post" # Used in the UI
+    folder: "content/post" # The path to the folder where the documents are stored
+    path: '{{slug}}/index' # beta feature
+    media_folder: ''
+    public_folder: ''
+    # adding a nested object will show the collection folder structure
+    nested:
+      depth: 100 # max depth to sho
